@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from "rxjs";
-import { Post } from "../post.model";
+import { IPost } from "../post.model";
 import { PostsService } from '../posts.service';
 
 @Component({
@@ -9,16 +9,16 @@ import { PostsService } from '../posts.service';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit, OnDestroy {
-  posts: Post[] = [];
+  posts: IPost[] = [];
   private postsSubscription: Subscription;
 
   constructor(public postsService: PostsService) {
   }
 
   ngOnInit() {
-    this.posts = this.postsService.getPosts();
+    this.postsService.getPosts();
     this.postsSubscription = this.postsService.getPostUpdateListener()
-      .subscribe((posts: Post[]) => {
+      .subscribe((posts: IPost[]) => {
         this.posts = posts;
       });
   }
