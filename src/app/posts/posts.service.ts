@@ -37,7 +37,7 @@ export class PostsService {
   }
 
   getPost(id: string) {
-    return this.http.get<{ _id: string, title: string, content: string }>(
+    return this.http.get<{ _id: string, title: string, content: string, imagePath: string }>(
       'http://localhost:3000/api/posts/' + id
     );
   }
