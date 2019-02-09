@@ -5,7 +5,6 @@ import { Subject } from "rxjs";
 import { map } from "rxjs/operators";
 
 import { IPost } from "./post.model";
-import { pipe } from '@angular/core/src/render3';
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {
@@ -22,7 +21,7 @@ export class PostsService {
           return postData.posts.map(post => {
             return {
               title: post.title,
-              content: post.title,
+              content: post.content,
               id: post._id,
               imagePath: post.imagePath
             }
@@ -47,6 +46,7 @@ export class PostsService {
 
   addPost(title: string, content: string, image: File) {
     const postData = new FormData();
+    postData.append('id', id);
     postData.append('title', title);
     postData.append('content', content);
     postData.append('image', image, title);

@@ -23,6 +23,8 @@ export class PostListComponent implements OnInit, OnDestroy {
       .subscribe((posts: IPost[]) => {
         this.isLoading = false;
         this.posts = posts;
+        console.log(posts);
+        console.log(this.posts);
       });
   }
 
