@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { PostsService } from '../posts.service';
-import { IPost } from '../post.model';
+import { Post } from '../post.model';
 import { mimeType } from "./mime-type.validator";
 
 @Component({
@@ -13,7 +13,7 @@ import { mimeType } from "./mime-type.validator";
 export class PostCreateComponent implements OnInit {
   enteredTitle = '';
   enteredContent = '';
-  post: IPost
+  post: Post
   isLoading = false;
   form: FormGroup
   imagePreview: string;
